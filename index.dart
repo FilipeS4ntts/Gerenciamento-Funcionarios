@@ -15,6 +15,7 @@ class Funcionarios {
   double _salario = 0;
 
   Funcionarios(this._id, this._nome, this._cargo, this._salario);
+  /*--SALARIO--*/
 
   set salario(double salario) {
     /*setter*/
@@ -29,7 +30,7 @@ class Funcionarios {
   void exibirDados() {
     print("o seu salário é $_salario ,");
   }
-  /*nome*/
+  /*NOME*/
 
   void setNome(String nome) {
     /*setter*/
@@ -39,5 +40,21 @@ class Funcionarios {
 
   String getNome() {
     return _nome;
+  }
+
+  set id(int id) {
+    /*setter*/
+
+    _id = id;
+  }
+
+  int get id {
+    return _id;
+  }
+
+  set cargo(String cargo) {
+    _cargo = cargo;
+
+  String get()
   }
 }
