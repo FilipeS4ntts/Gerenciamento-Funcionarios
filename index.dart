@@ -14,17 +14,17 @@ class Funcionarios {
   String _cargo = "";
   double _salario = 0;
 
-  Funcionarios(this._id, this._nome, this._cargo, this._salario);
+  get getSalario => _salario;
+  get getNome => _nome;
+  get getCargo => _cargo;
+  get getId => _id;
+
   /*--SALARIO--*/
 
   set salario(double salario) {
     /*setter*/
 
     _salario = salario;
-  }
-
-  double get salario {
-    return _salario;
   }
 
   void exibirDados() {
@@ -37,24 +37,48 @@ class Funcionarios {
 
     _nome = nome;
   }
-
-  String getNome() {
-    return _nome;
-  }
-
-  set id(int id) {
+  set setId(int id) {
     /*setter*/
-
     _id = id;
   }
-
-  int get id {
-    return _id;
-  }
-
-  set cargo(String cargo) {
+  set setCargo(String cargo) {
     _cargo = cargo;
+}
+set setSalario(double salario) {
+    _salario = salario;
+}
+}
+class Empresa{
 
-  String get()
+List<List<dynamic>> funcionariosdaempresa = [];
+
+
+void addFuncionarios(Funcionarios adfuncionario){
+  print('digite seu id')
+  id = stdin.readLineSync().toString();
+  adfuncionario.setId = int.parse(id);
+  print('digite seu nome')
+  nome = stdin.readLineSync().toString();
+  adfuncionario.setNome = nome;
+   print('digite seu cargo')
+  cargo = stdin.readLineSync().toString();
+  adfuncionario.setCargo = cargo;
+   print('digite seu salario')
+  salario = stdin.readLineSync().toString();
+  adfuncionario.setSalario = double.parse(salario);
+}
+
+funcionariosdaempresa.add([id, nome, cargo, salario]);
+}
+
+void aumentarSalario(){
+    print("Digite o Id do Funcionario: ");
+        String idc = stdin.readLineSync().toString();
+        int id = int.tryParse(idc) ?? -1;
+    print("Digite a porcentagem de aumento do funcionario: ");
+        String porcentagem = stdin.readLineSync().toString();
+    if (int.parse(porcentagem) == 0) {
+    print("Porcentagem inválida.");
+    return;
   }
 }
