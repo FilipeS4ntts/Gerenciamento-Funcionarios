@@ -1,80 +1,84 @@
-import 'package:funcionario/funcionario.dart' as funcionario;
+import 'package:atv03/atv03.dart' as atv03;
 
-void main(List<String> arguments) {
-Construtor(this._nome, this._preco, this._quantidadeEmEstoque, this._descricao?)
+import 'dart:io';
 
-
+void main() {
+  Funcionarios f1 = Funcionarios(1, "Filipe", "Senior", 200.00);
+  f1.salario = 1000.00;
+  print(f1.getNome());
 }
 
-class Produto(){
-String _nome = "";
-double _preco = 0;
-int _quantidadeEmEstoque = 0;
-String late _descricao?;
-int late _vendido;
+class Funcionarios {
+  int _id = 0;
+  String _nome = "";
+  String _cargo = "";
+  double _salario = 0;
 
-String get => nome => _nome;
-double get => preco => _preco;
-int    get => quantidadeEmEstoque => _quantidadeEmEstoque;
-String get => _descricao? => descricao;
-double get => _vendido => vendido;
+  get getSalario => _salario;
+  get getNome => _nome;
+  get getCargo => _cargo;
+  get getId => _id;
 
-set nome(String novoNome) {
-    if (novoNome.isNotEmpty) {
-      _nome = novoNome;
-    } else {
-      print('Nome inválido!');
-    }
-}
-set preco(String novoPreco) {
-    if (novoPreco.isNotEmpty) {
-      _preco = novoPreco;
-    } else {
-      print('Preço inválido!');
-    }
-}
-set quantidadeEmEstoque(String novoquantidadeEmEstoque) {
-    if (novoquantidadeEmEstoque.isNotEmpty) {
-      _quantidadeEmEstoque = novoquantidadeEmEstoque;
-    } else {
-      print('Valor inválido!');
-    }
-}
-set descricao(String novodescricao) {
-    if (novodescricao.isNotEmpty) {
-      _quantidadeEmEstoque = novodescricao;
-    } else {
-      print('Descrição inválida!');
-    }
-}
-set vendido(String novovendido) {
-    if (novovendido.isNotEmpty) {
-      _vendido = novovendido;
-    } else {
-      print('Valor inválido!');
-    }
-}
+  /*--SALARIO--*/
 
+  set salario(double salario) {
+    /*setter*/
 
+    _salario = salario;
+  }
 
-vender(int quantidade){
-int vendido = 5;
-quantidadeEmEstoque = _quantidadeEmEstoque - vendido;
-if(_quantidadeEmEstoque >= vendido){
-  print("venda bem-sucedida!")
+  void exibirDados() {
+    print("o seu salário é $_salario ,");
+  }
+  /*NOME*/
+
+  void setNome(String nome) {
+    /*setter*/
+
+    _nome = nome;
+  }
+  set setId(int id) {
+    /*setter*/
+    _id = id;
+  }
+  set setCargo(String cargo) {
+    _cargo = cargo;
 }
-else()
-print("venda mal-sucedida...")
-}
-
-reporEstoque(int quantidade){
- quantidadeEmEstoque = _quantidadeEmEstoque + vendido;
+set setSalario(double salario) {
+    _salario = salario;
 }
 }
+class Empresa{
 
-class CarrinhoDeCompras(){
-  
+List<List<dynamic>> funcionariosdaempresa = [];
+
+
+void addFuncionarios(Funcionarios adfuncionario){
+  print('digite seu id')
+  id = stdin.readLineSync().toString();
+  adfuncionario.setId = int.parse(id);
+  print('digite seu nome')
+  nome = stdin.readLineSync().toString();
+  adfuncionario.setNome = nome;
+   print('digite seu cargo')
+  cargo = stdin.readLineSync().toString();
+  adfuncionario.setCargo = cargo;
+   print('digite seu salario')
+  salario = stdin.readLineSync().toString();
+  adfuncionario.setSalario = double.parse(salario);
 }
 
+funcionariosdaempresa.add([id, nome, cargo, salario]);
+}
 
-
+void aumentarSalario(){
+    print("Digite o Id do Funcionario: ");
+        String idc = stdin.readLineSync().toString();
+        int id = int.tryParse(idc) ?? -1;
+    print("Digite a porcentagem de aumento do funcionario: ");
+        String porcentagem = stdin.readLineSync().toString();
+    if (int.parse(porcentagem) == 0) {
+    print("Porcentagem inválida.");
+    return;
+  }
+}
